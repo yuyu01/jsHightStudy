@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文章信息展示</title>
+    <!-- <link rel='stylesheet', href='css/index.css', type='text/css'> -->
+   
+</head>
+<body>
+    <script>
+        // let a = [];
+        // for(let i=0;i < 10;i++){
+        //    a[i] = function (){console.log(i)}
+        // }
+        // a[1]();
+        // let res = [...'...']
+        
+        // console.log("length",res)
+
+        // let obj = {
+        //     a:1,
+        //     b:function(){
+        //         let f = ()=>{
+        //             return this;
+        //         }
+        //         return f();
+        //     }
+        // }
+
+        // let fn = obj.b;
+        // console.log(obj.b())
+        // console.log(fn())
+        // let ret = /^\d*\*[^\d]*[\w]{6}$/
+        // let str= "123*ABCabdc-89"//"123*abcABCD_89"//"abc*abcABCDEF"//"***abcABCD_89"
+        // console.log(str.replace(ret,"abc"));
+        
+        // function idxOf(str,subStr){
+        //     var resolut = str.match(subStr);
+        //     return resolut?resolut.index:-1;
+        // }
+        // console.log(idxOf('abcd','bc'))
+
+        // String.prototype.trim = function(){
+        //     var str = this;
+        //     return str.replace(/^\s\s*/,"").replace(/\s\s*$/)
+        // }
+        // let str1 = "a,b c"
+        // console.log(str1.trim());
+
+        // function Fn(){
+        //     this.name = 'miaov';
+        //     this.address = '北京';
+        //     console.log(this)
+        //     // return {}
+        // }
+        // var fn = new Fn();
+        // // console.log(fn.name)
+
+        function obj(name){
+            if(name){
+                this.name = name;
+            }
+            return this;
+        }
+
+        obj.prototype.name = "name2";
+        var a = obj("name1").name;
+        var b = new obj;
+        console.log(a)
+        console.log(b.name)
+    </script>
+    
+</body>
+</html>

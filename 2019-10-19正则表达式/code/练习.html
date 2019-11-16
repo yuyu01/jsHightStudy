@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+// let str = "asdfg1234asdf123asg1245"
+// let reg = /\d+/g
+// let res = str.match(reg)
+// console.log(res)
+// let a = "as"
+// let reg = new RegExp(a,"g")
+// let res = reg.exec(str)
+// let res1 = reg.test(str)
+// console.log(res)
+// console.log(res1)
+
+// let reg = /\d+/g
+// str = str.replace(reg,function(arg){
+//     return "*".repeat(arg.length)
+// })
+
+// console.log(str)
+
+//[]：字符集合
+// let str = "asdfgdsfgasdfad"
+// let reg = /a|b/g
+// let res = str.replace(reg,"*")
+// console.log(res) //*sdfgdsfg*sdf*d
+// let reg = /[ab]/g
+// let res = str.replace(reg,"*") 
+// console.log(res)//*sdfgdsfg*sdf*d
+
+// let reg = /[0-21]/g //意思是 0到2 或者 1 
+
+// 边界符 \b  非\w （字符 数字 下划线） 的都被称为边界
+// let str = "is this a book";
+// let reg = /\bis\b/g
+// let arr = str.match(reg)
+// console.log(arr)
+
+// let reg = new RegExp("\\bis\\b","g")
+// let arr = str.match(reg);
+// console.log(arr)
+
+//() 分组；{}数量 ，  ? 0到1次 ，+ 一次到多次， * 0-多次
+// let str = "abbabsdssfsdfassbasdfasdssfabasdfdfss";
+// // let reg = /abab/g;
+// let reg = /ab{2}/g //匹配 abb
+// let reg = /(ab{2})/g //匹配abab
+// let res = str.replace(reg,"*");
+// console.log(res);
+
+//转换时间格式：2019-10-10  ----> 19/10/2019
+//反响引用
+
+// let time = "2010-10-19"
+// let reg = /(\d{4})-(\d{1,2})-(\d{1,2})/g;
+// let res = time.replace(reg,"$3/$2/$1")
+// console.log(res)
+
+//命名分组:?<分组名> 
+// let str = "$name=zhangsan$age=20"
+// let reg = /\$/
+
+//零宽断言：正向(后面） 负向（前面）  肯定断言 否定断言
+</script>
+</html>

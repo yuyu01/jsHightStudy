@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background: red;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+
+    <script>
+
+        function move(ele,flag,pos)
+        {
+            return new Promise((resolve,reject)=>
+            {
+                if(ele)
+                {
+                    let start = parseInt(window.getComputedStyle(ele,null)[flag])
+                    let dis = (pos - start)/Math.abs(pos - start)
+                    let speed = dis * 1
+                    function fn()
+                    {
+                        let now = parseInt(window.getComputedStyle(ele,null)[flag])
+                        if(now != pos)
+                        {
+                            ele.style[flag] = now + speed + "px";
+                            window.requestAnimationFrame(fn)
+                        }
+                        else
+                        {
+                            resolve()
+                        }
+                    }
+                fn()
+            }
+        })
+    }
+    let ele = document.querySelector(".box")
+    async function fn(){
+        try{
+            await move(ele,"left",300)
+            await move(ele,"top",300)
+            await move(ele,"left",0)
+            await move(ele,"top",0)
+        }
+        catch(re){
+
+        }
+    }
+    fn()
+    </script>
+</body>
+
+</html>

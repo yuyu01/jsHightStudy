@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/babel.js"></script>
+</head>
+<body>
+<div id="box"></div>
+<input type="text" id="text" />
+<script type="text/babel">
+{
+    /*
+        表达式:
+            js 中表达式是运行之后会返回一个值的代码判断:
+                - 变量
+                - 算术运算
+                - 函数调用
+                - ……
+        注意：分清楚 表达式 与 语句 的区别，if、for、while 这些都是语句，JSX 不支持语句
+    */
+    let fn = ()=>{
+        return (
+            <div>
+                <span>第一块</span>
+                <strong>第二块</strong>
+            </div>   
+        );
+    }
+    ReactDOM.render(
+        <header id="title">
+            {/*
+                <div>内容</div>
+            */}
+            {["1","2",3]}
+        </header>,
+        document.querySelector("#box")
+    );
+}
+</script>    
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+</head>
+<body>
+<div id="box"></div>
+<script>
+/*
+    虚拟 DOM
+    React.createElement(type,props,children);
+*/    
+let el = React.createElement("header",{id:"title"},
+        React.createElement("h1",null,"hello React"),
+        React.createElement("p",null,"欢迎来到 React 的世界")
+    );
+console.log(el);    
+ReactDOM.render(
+    el,
+    document.querySelector("#box")
+);
+</script>    
+</body>
+</html>
