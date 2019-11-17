@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>react</title>
+    <script src = "js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/babel.js"></script>
+</head>
+<body>
+    <div id="box"></div>
+    <input type="text" id = "text"/>
+    <script type="text/babel" >
+    //     let el = React.createElement("header",{id:"header"},
+    //         React.createElement("h1",null,"hello world"),
+    //         React.createElement("p",null,"欢迎来到这里")
+    //     )
+    //     console.log(el)
+    // ReactDOM.render(
+    //     el,
+    //     document.querySelector("#box"),
+    //     ()=>{
+    //         console.log("完成")
+    //     }
+    // );
+    // ReactDOM.render(
+    //     <div>
+    //         <h1>hello React</h1>
+    //         <p>欢迎来到</p>
+    //     </div>,
+    //     document.querySelector("#box")
+    // )
+
+    // let text = document.querySelector("#text");
+    // text.oninput=()=>{
+    //     ReactDOM.render(
+    //         <div>
+    //             这是新内容:{text.value}
+    //         </div>,
+    //         document.querySelector("#box")
+    //     )
+    // }
+
+    // JSX 表达式
+    let obj = [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "d"
+        ]
+    ReactDOM.render(
+        <div>
+        {obj.map(item=><p>{item}</p>)}
+        </div>,
+        document.querySelector("#box")
+    )
+    </script>
+</body>
+</html>
