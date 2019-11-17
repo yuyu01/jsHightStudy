@@ -9,7 +9,7 @@ export default class List extends Component{
         return (
         <dl className = {"friend-group "+(show === title?"expanded":"")}>
             <dt onClick = {()=>{
-                callBack(title)
+                (show === title)?callBack(""):callBack(title)
             }}>
             {title}</dt>
             {list.map((item,idx)=><dd key={idx}>{item.name}</dd>)}
