@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+<!--    <h1>{{RMB(price)}}</h1>-->
+    <h1>{{price|RMB('a')}}</h1>
+</div>
+<script src="./js/vue.js"></script>
+<script>
+
+    let val = 2;
+
+    function a(v) {
+        return v*10
+    }
+    function b(v) {
+        return v+10
+    }
+    function c(v) {
+        return v + ' - kkb';
+    }
+
+    console.log(c(b(a(val))));  // val|a|b|c
+
+    new Vue({
+        el: '#app',
+        data: {
+            title: 'kaikeba',
+            price: 10000        // ￥ 100.00
+        },
+        methods: {
+            // RMB(val) {
+            //     return `￥ ${(val/100).toFixed(2)}`
+            // }
+        },
+        filters: {
+            RMB(val, k) {
+                return `￥ ${(val/100).toFixed(2)} - ${k}`
+            }
+        }
+    })
+</script>
+</body>
+</html>

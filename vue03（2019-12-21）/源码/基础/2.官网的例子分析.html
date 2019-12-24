@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="app">
+        <h1>{{title}}</h1>
+        <hr>
+
+        <input type="text" v-focus="isFocus" />
+
+        <button v-on:click="isFocus = !isFocus">按钮</button>
+    </div>
+
+    <script src="./js/vue.js"></script>
+
+    <script>
+
+        // let input = document.createElement('input');
+        // input.focus();
+        // document.body.appendChild(input);
+        // input.focus();
+
+
+        Vue.directive('focus', {
+            bind(el) {
+                // 该生命周期执行完成的时候，虽然可以得到所在的dom节点对象，但是并不代表该节点已经渲染到页面（dom树）中
+                // el.focus();
+            },
+            inserted(el, binding) {
+                // console.log(binding);
+                binding.value && el.focus();
+            },
+            update(el, binding, vNode, oldVNode) {
+                console.log('binding', binding, vNode, oldVNode);
+                binding.value && el.focus();
+
+                // if (binding.value) {
+                //     el.focus();
+                // } else {
+                //     el.blur();
+                // }
+            }
+        });
+
+        let app = new Vue({
+            el: '#app',
+            data: {
+                title: '指令',
+                isFocus: false
+            }
+        });
+
+    </script>
+
+</body>
+</html>

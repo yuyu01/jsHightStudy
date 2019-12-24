@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="app">
+
+        <div v-global1 v-test1></div>
+
+        <kkb></kkb>
+    </div>
+
+    <script src="./js/vue.js"></script>
+
+    <script>
+
+        Vue.component('kkb', {
+            template: `
+                <div>
+                    <h2 v-global1 v-test1 v-test2>kkb</h2>
+                </div>
+            `,
+            // 局部的
+            directives: {
+                'test1': {
+                    bind() {
+                        console.log('test1')
+                    }
+                },
+                'test2': {
+                    bind() {
+                        console.log('test2')
+                    }
+                }
+            }
+        });
+
+        Vue.directive('global1', {
+            bind() {
+                console.log('global1')
+            }
+        });
+
+
+        let app = new Vue({
+            el: '#app',
+            data: {
+            }
+        });
+
+        // let app1 = new Vue({
+        //     el: '#app1',
+        //     data: {
+        //     }
+        // });
+
+    </script>
+
+</body>
+</html>

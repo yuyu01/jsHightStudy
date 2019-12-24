@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+    <input type="text" v-model="v1" />
+    <textarea v-model="v2" cols="30" rows="10"></textarea>
+    {{v1}} / {{v2}}
+
+    <hr>
+
+    <input type="radio" v-model="v3" value="男" /> 男
+    <input type="radio" v-model="v3" value="女" /> 女
+
+    <hr>
+
+    <input type="checkbox" v-model="v4" /> 同意
+    <hr/>
+    <input type="checkbox" v-model="v5" value="足球" /> 足球
+    <input type="checkbox" v-model="v5" value="音乐" /> 音乐
+
+
+    <hr>
+    <select v-model="v3">
+        <option value="男">男</option>
+        <option value="女">女</option>
+    </select>
+    <select v-model="v5" multiple>
+        <option value="足球">足球</option>
+        <option value="音乐">音乐</option>
+    </select>
+
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+
+    let app = new Vue({
+        data: {
+            v1: 'aaa',
+            v2: 'bbb',
+
+            v3: '女',
+
+            v4: true,
+            v5: ['足球', '音乐'],
+        }
+    });
+    app.$mount('#app');
+</script>
+</body>
+</html>

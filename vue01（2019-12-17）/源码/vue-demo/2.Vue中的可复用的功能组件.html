@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+<!--一切就从这里开始……-->
+</div>
+
+<script src="js/vue.js"></script>
+<script>
+
+    /**
+     * 根组件：
+     *  应用最顶层的组件，一般情况下，一个独立的应用有且只有一个根组件（节点）
+     * 可复用的功能组件：
+     *  组成应用的具有独立功能一个部分：轮播图、选项卡、等
+     *  通过 Vue 提供的可复用组件的方式来组织这些组件，以达到可复用、可维护……
+     */
+
+    /**
+     * 创建可复用的功能组件
+     * Vue.component('组件在使用的时候的名称', {组件的配置})
+     *
+     * 根组件 和 可复用的大致上是相同的，当然也有一些不同点
+     */
+    Vue.component('tab', {
+        template: `
+            <div>选项卡</div>
+        `
+    });
+
+    /**
+     * 通过 Vue 创建的组件，可以想标签一样去使用，Vue 会帮助我们去进行解析
+     */
+    let app = new Vue({
+        template: `
+            <div>
+                <h1>开课吧</h1>
+                <hr />
+                <tab />
+                <hr />
+                <tab />
+            </div>
+        `
+    });
+    app.$mount( '#app' );
+
+
+
+</script>
+
+</body>
+</html>

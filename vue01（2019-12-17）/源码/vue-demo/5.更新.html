@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <h1>{{title}}</h1>
+    <h2>{{name}}</h2>
+</div>
+
+<script src="js/vue.js"></script>
+<script>
+
+
+    /**
+     * Vue 不仅仅只是一个模板引擎，它还会帮助我们做许许多多的事情，比如数据模板的更新
+     *
+     * 当数据发生变化的时候，会主动更新对应模板（组件） - Object.defineProperty : Proxy
+     *
+     * 有了这样的一种特性以后，我们就可以把更多注意力放到业务逻辑处理中
+     *
+     * 关注：
+     *      数据如何变化？
+     */
+    let app = new Vue({
+        el: '#app',
+        data: {
+            title: '开课吧',
+            name: 'Vue'
+        }
+    });
+
+    console.log(app);
+
+
+
+    // 1.创建h1
+    // 2.添加内容
+    // 3.添加到页面某个位置
+    // 4.创建h2
+    // 5.……
+
+    // "select * from users where age < 30 limit 10" 声明式
+
+
+
+</script>
+
+</body>
+</html>

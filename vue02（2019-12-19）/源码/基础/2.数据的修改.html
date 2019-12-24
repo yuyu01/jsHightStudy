@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <h1>{{user.username}}</h1>
+    <h1>{{user.age}}</h1>
+    <h1>{{arr}}</h1>
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            user: {
+                username: 'zmouse'
+            },
+            arr: []
+        }
+    });
+
+</script>
+</body>
+</html>

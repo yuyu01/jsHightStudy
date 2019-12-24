@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="app">
+        <label><input type="radio" v-model="gender" value="" /> 所有</label>
+        <label><input type="radio" v-model="gender" value="男" /> 男</label>
+        <label><input type="radio" v-model="gender" value="女" /> 女</label>
+        <hr>
+        <ul>
+            <li v-for="user of showUsers">
+                <input type="checkbox" v-model="user.checked" />
+                {{user.username}}
+            </li>
+        </ul>
+        <label><input type="checkbox" v-model="checkedAll">全选</label>
+    </div>
+
+    <script src="./js/vue.js"></script>
+
+    <script>
+
+        let app = new Vue({
+            el: '#app',
+            data: {
+                gender: '',
+                users: [
+                    {id: 1, username: 'baogege', gender: '男',checked:false},
+                    {id: 2, username: 'mt', gender: '男',checked:false},
+                    {id: 3, username: 'haigege', gender: '男',checked:false},
+                    {id: 4, username: 'zMouse', gender: '男',checked:false},
+                    {id: 5, username: 'reci', gender: '女',checked:false},
+                    {id: 6, username: 'lisi', gender: '女',checked:false}
+                ]
+            },
+            computed: {
+                showUsers: {
+                    get() {
+                        return this.gender === '' ? [...this.users] : this.users.filter(user=>user.gender===this.gender);
+                    }
+                },
+                checkedAll: {
+                    get() {
+                        return this.users.every( user => user.checked );
+                    },
+                    set(newVal) {
+                        // console.log(newVal);
+                        this.users = this.users.map( user => {
+                            return {
+                                ...user,
+                                checked: newVal
+                            }
+                        } );
+                    }
+                }
+            }
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <h1>{{title}}</h1>
+    <h2>{{name}}</h2>
+</div>
+
+<script src="js/vue.js"></script>
+<script>
+
+    // let v = 10;
+    /**
+     * 使用 vue 的原因，在于数据，页面会根据不同的数据显示不同的内容
+     *
+     * 表达式：可以通过运算（执行）得到结果（数据）的公式
+     *  - 变量
+     *  - 函数调用
+     *  - 数学运算
+     *
+     * 语句：if,else,while,for....
+     *
+     * 数据来源于组件内部，比如 data 中的数据
+     * 解析过程中，会自动绑定组件实例中的数据
+     */
+    let app = new Vue({
+        el: '#app',
+        // 用来挂载组件所需要渲染或使用的数据
+        data: {
+            title: '开课吧',
+            name: 'Vue'
+        }
+    });
+
+    console.log(app);
+
+
+
+</script>
+
+</body>
+</html>

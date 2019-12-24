@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="app">
+        <label><input type="radio" @change="change" v-model="gender" value="" /> 所有</label>
+        <label><input type="radio" @change="change" v-model="gender" value="男" /> 男</label>
+        <label><input type="radio" @change="change" v-model="gender" value="女" /> 女</label>
+        <hr>
+        <ul>
+            <li v-for="user of showUsers">
+                {{user.username}}
+            </li>
+        </ul>
+    </div>
+
+    <script src="./js/vue.js"></script>
+
+    <script>
+
+        let users = [
+            {id: 1, username: 'baogege', gender: '男'},
+            {id: 2, username: 'mt', gender: '男'},
+            {id: 3, username: 'haigege', gender: '男'},
+            {id: 4, username: 'zMouse', gender: '男'},
+            {id: 5, username: 'reci', gender: '女'},
+            {id: 6, username: 'lisi', gender: '女'}
+        ];
+
+        new Vue({
+            el: '#app',
+            data: {
+                gender: '',
+                users,
+                showUsers: users
+            },
+            methods: {
+                change() {
+                    // console.log(this.gender);
+                    // if (this.gender != '') {
+                    //     this.users = this.users.filter( v => v.gender === this.gender );
+                    // }
+
+                    if (this.gender != '') {
+                        this.showUsers = this.users.filter( v => v.gender === this.gender );
+                    } else {
+                        this.showUsers = this.users;
+                    }
+                }
+            }
+        });
+
+    </script>
+
+</body>
+</html>

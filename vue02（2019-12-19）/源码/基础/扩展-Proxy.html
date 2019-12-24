@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+    <script>
+
+        let obj1 = {
+            x: 1,
+            y: 2
+        };
+
+        let obj2 = new Proxy(obj1, {
+            get() {
+
+            },
+            set() {
+                console.log('render');
+                console.log("修改添加啊啊啊啊")
+            }
+        });
+
+
+
+    </script>
+
+</body>
+</html>

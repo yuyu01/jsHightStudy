@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="app">
+        <p>{{now}}</p>
+        <button @click="showDate=true">showDate</button>
+        <p v-if="showDate">{{now}}</p>
+
+        <hr />
+        <p>{{getNow()}}</p>
+        <button @click="showDate1=true">showDate</button>
+        <p v-if="showDate1">{{getNow()}}</p>
+    </div>
+
+    <script src="./js/vue.js"></script>
+
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {
+                showDate: false,
+                showDate1: false
+            },
+            computed: {
+                now: {
+                    get() {
+                        // 没有依赖，或依赖数据没有发生改变的时候，计算属性的结果是固定（缓存的）
+                        return Date.now();
+                    }
+                },
+
+                // now() {
+                //     return Date.now();
+                // }
+            },
+            methods: {
+                getNow() {
+                    return Date.now();
+                }
+            }
+        });
+
+    </script>
+
+</body>
+</html>

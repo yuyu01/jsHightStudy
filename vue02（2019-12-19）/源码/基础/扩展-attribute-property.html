@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <!-- 写在标签上的属性：attribute   -->
+    <input type="text" value="开课吧">
+
+    <script>
+
+        // input  和 页面中的 input 标签并不是一个东西，但是它们之间是有关联的 dom
+
+        let input = document.querySelector('input');
+
+        // 对象中的属性：property
+        input.value = 'abc';
+
+        input.setAttribute('value', 'zmouse');
+
+    </script>
+
+</body>
+</html>

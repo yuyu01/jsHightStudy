@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <button v-on:click="isCanDrag = !isCanDrag">拖拽 - {{isCanDrag}}</button>
+        <div class="box" v-drag.limit="isCanDrag"></div>
+    </div>
+
+    <script src="./js/vue.js"></script>
+
+    <script>
+
+
+        Vue.directive('drag', {
+            bind(el, {value: isCanDrag, modifiers:{limit}}) {
+
+                let x = 0;
+                let y = 0;
+                let isDown = false;
+                // console.log(isCanDrag, limit);
+                el._isCanDrag = isCanDrag;
+
+                el.addEventListener('mousedown', function(e) {
+
+                    if (!this._isCanDrag) return;
+
+                    x = e.clientX - this.offsetLeft;
+                    y = e.clientY - this.offsetTop;
+                    isDown = true;
+
+                    e.preventDefault();
+                });
+
+                el.addEventListener('mousemove', function(e) {
+                    if (isDown) {
+                        let L = e.clientX - x;
+                        let T = e.clientY - y;
+
+                        if (limit) {
+                            if (L < 0) {
+                                L = 0;
+                            }
+                        }
+
+                        this.style.left = L + 'px';
+                        this.style.top = T + 'px';
+                    }
+                });
+
+                el.addEventListener('mouseup', function(e) {
+                    isDown = false;
+                });
+
+            },
+
+            update(el, {value: isCanDrag}) {
+                el._isCanDrag = isCanDrag;
+            }
+        });
+
+        let app = new Vue({
+            el: '#app',
+            data: {
+                title: '指令',
+                isCanDrag: false
+            }
+        });
+
+    </script>
+
+</body>
+</html>

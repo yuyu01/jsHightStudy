@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+
+    <button @click="fn">按钮</button>
+
+    <ul>
+        <li v-for="(user,index) of users" :key="user.id">
+            <input type="checkbox"> {{index}} - {{user.username}}
+        </li>
+    </ul>
+
+<!--    <ul>-->
+<!--        <li v-for="i of 10">-->
+<!--            {{i}}-->
+<!--        </li>-->
+<!--    </ul>-->
+
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+
+    // 模板 => vdom => dom
+
+    let app = new Vue({
+        data: {
+            users: [
+                {id: 1, username: 'zmouse'},
+                {id: 2, username: 'mt'},
+                {id: 3, username: 'hai'}
+            ]
+        },
+
+        methods: {
+            fn() {
+                // console.log('fn');
+                this.users = this.users.sort(() => {return Math.random() - .5})
+            }
+        }
+    });
+    app.$mount('#app');
+
+    // app.users = app.users.sort(() => {return Math.random() - .5})
+</script>
+</body>
+</html>

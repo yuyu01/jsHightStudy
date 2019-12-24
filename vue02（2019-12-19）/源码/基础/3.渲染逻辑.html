@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+
+    <!-- 在解析完成之前，会出现 {{title}} 内容   -->
+    <h1>你好，{{title}}</h1>
+
+<!--    <p v-text="'你好，' + title"></p>-->
+
+    <p v-cloak>你好，{{title}}</p>
+
+    <hr>
+
+    {{content}}
+
+    <hr>
+    <div v-html="content"></div>
+
+    <hr>
+    <p v-pre>
+        如果你想使用 vue，那么就需要知道 vue 中的数据输出应该是用类似：{{title}}
+    </p>
+
+    <hr>
+
+    <p>
+        用户名：<span v-if="isShow">{{user.username}}</span>
+    </p>
+
+    <p>
+        用户名：<span v-show="isShow">{{user.username}}</span>
+    </p>
+
+    <hr />
+    <div v-if="isLogin">
+        {{user.username}}
+        <span>....</span>
+    </div>
+    <div v-else>
+        <span>....</span>
+        请登录
+    </div>
+
+<!--    <p>-->
+<!--        <div></div>-->
+<!--    </p>-->
+
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+
+    /**
+     * 指令
+     *  - 值是表达式模式
+     *  - 不支持 {{}} 语法
+     *
+     * v-if 与 v-show 的区别
+     *      v-if：值为true的时候渲染标签，false删除（不渲染）标签
+     *      v-show：渲染结构，但是根据值来隐藏和显示标签
+     * 使用v-if还是v-show：该结构是否经常变化
+     *
+     */
+
+    let app = new Vue({
+        // el: '#app',
+        data: {
+            isLogin: true,
+            isShow: false,
+            title: '开课吧',
+            user: {
+                username: 'zmouse'
+            },
+            arr: [],
+            content: '<h2>开课吧</h2>'
+        }
+    });
+
+    setTimeout(() => {
+        app.$mount('#app');
+    }, 0);
+
+</script>
+</body>
+</html>

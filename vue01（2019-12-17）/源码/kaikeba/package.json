@@ -1,0 +1,27 @@
+{
+  "name": "kaikeba",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node-dev ./src/app.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "glob": "^7.1.6",
+    "koa": "^2.11.0",
+    "koa-router": "^7.4.0",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/koa": "^2.11.0",
+    "@types/koa-router": "^7.0.42",
+    "@types/reflect-metadata": "^0.1.0",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.7.3"
+  }
+}

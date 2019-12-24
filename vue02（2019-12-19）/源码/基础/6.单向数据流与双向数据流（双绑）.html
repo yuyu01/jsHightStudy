@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+<!--    <input type="text" :value="val1">-->
+
+
+<!-- v-model 绑定：只能同时有一个数据（属性）是双向的，所有没有参数，具体 v-model 绑定到了什么属性，由具体的元素和自定义组件内部的实现来决定，input 绑定到了 value   -->
+    <input type="text" v-model="val1">
+    <h1>{{val1}}</h1>
+
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+
+    let app = new Vue({
+        data: {
+            val1: 'kaikeba'
+        }
+    });
+    app.$mount('#app');
+</script>
+</body>
+</html>

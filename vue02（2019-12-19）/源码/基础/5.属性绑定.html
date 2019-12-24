@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+    <!-- 对 id 这个属性使用 v-bind，: 后面的内容，我们又称为 指定的参数，给元素添加一个 id 的 属性（attribute），值为指令=后面表达式的结果  -->
+    <div v-bind:id="myId"></div>
+    <div :id="myId"></div>
+
+    <div :style="style1"></div>
+
+    <hr>
+
+    <!-- 对象写法：key 是要动态添加的 class 名称，value 是 一个 boolean，true 表示 前面的key表示class将会被添加到元素的 class 上   -->
+    <div :class="{'box1': isActive, 'box2': isChecked}"></div>
+
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+
+    let app = new Vue({
+        data: {
+            isActive: true,
+            isChecked: true,
+            myId: 'kaikeba',
+            style1: {
+                width: '100px',
+                height: '100px',
+                background: 'green'
+            }
+        }
+    });
+    app.$mount('#app');
+
+    // app.users = app.users.sort(() => {return Math.random() - .5})
+</script>
+</body>
+</html>

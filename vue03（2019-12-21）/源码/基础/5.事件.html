@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="app">
+
+        <button v-on:click="fn">开课吧</button>
+        {{num1}}
+
+        <hr>
+        <ul>
+<!--            $event 是固定的写法 -->
+            <li v-for="user of users" :key="user.id" @click="add(user, $event)">
+                {{user.id}} - {{user.username}} - {{user.age}}
+            </li>
+        </ul>
+
+    </div>
+
+    <script src="./js/vue.js"></script>
+
+    <script>
+
+
+        let app = new Vue({
+            el: '#app',
+            data: {
+                num1: 1,
+                users: [
+                    {id: 1, username: 'zmouse', age: 35},
+                    {id: 2, username: 'mt', age: 30},
+                    {id: 3, username: 'hai', age: 30}
+                ]
+            },
+            methods: {
+                fn(e) {
+                    console.log('fn');
+                    // console.log(this);  //当前组件实例
+                    console.log(e.target);
+                    this.num1++;
+                },
+                add(user, e) {
+                    console.log(user, e);
+                }
+            }
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="app">
+        <label><input type="radio" v-model="gender" value="" /> 所有</label>
+        <label><input type="radio" v-model="gender" value="男" /> 男</label>
+        <label><input type="radio" v-model="gender" value="女" /> 女</label>
+        <hr>
+        <ul>
+            <li v-for="user of showUsers">
+                {{user.username}}
+            </li>
+        </ul>
+    </div>
+
+    <script src="./js/vue.js"></script>
+
+    <script>
+
+        let users = [
+            {id: 1, username: 'baogege', gender: '男'},
+            {id: 2, username: 'mt', gender: '男'},
+            {id: 3, username: 'haigege', gender: '男'},
+            {id: 4, username: 'zMouse', gender: '男'},
+            {id: 5, username: 'reci', gender: '女'},
+            {id: 6, username: 'lisi', gender: '女'}
+        ];
+
+        /**
+         * 应用的数据，可以分为：
+         *  - 原始数据
+         *  - 派生数据：根据某种条件从原始数据中过滤出来的一种，vue 中为这种派生数据提供了一种更为方便的处理方式
+         *
+         *
+         * 计算属性
+         *      计算
+         *      属性
+         */
+        new Vue({
+            el: '#app',
+            // data：定义都是原始数据
+            data: {
+                gender: '',
+                users
+            },
+            methods: {
+            },
+            computed: {
+                // 因为这个数据是由一定的逻辑过滤得来的，所以这种数据并不是直接赋值，而是通过 get， set 来进行处理
+                // 当某个计算属性中依赖的数据发生了改变就会触发 get 的执行
+                showUsers: {
+                    get() {
+                        // return this.users;
+                        if (this.gender != '') {
+                            return this.users.filter( v => v.gender === this.gender );
+                        } else {
+                            return this.users;
+                        }
+                    }
+                }
+            }
+        });
+
+    </script>
+
+</body>
+</html>

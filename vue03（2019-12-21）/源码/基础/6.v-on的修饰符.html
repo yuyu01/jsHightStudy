@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="app">
+
+        <div @click.self="fn1" style="background: yellow; padding: 10px;">
+            <div @click="fn" style="background: red; padding: 10px;">
+                <button @click="fn" @contextmenu.prevent>按钮</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./js/vue.js"></script>
+
+    <script>
+
+
+        let app = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+                fn(e) {
+                    console.log('fn');
+
+                    // e.stopPropagation();
+                },
+                fn1() {
+                    console.log('fn1');
+                }
+            }
+        });
+
+    </script>
+
+</body>
+</html>

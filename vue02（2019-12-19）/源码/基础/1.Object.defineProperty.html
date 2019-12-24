@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+
+    let obj1 = {
+        x: 1,
+        y: 2
+    };
+
+    function render() {
+        console.log('渲染');
+    }
+
+    // 如何知道数据被修改了
+    // obj1.x = 2;
+    // render();
+
+    /**
+     * 当我们修改数据的时候，拦截数据的修改，主动更新视图（我们的关注中心就是如何去改变数据）
+     */
+
+    // function setState(state) {
+    //     obj1 = Object.assign(obj1, state);
+    //
+    //     render();
+    // }
+    //
+    // setState();
+
+
+    let obj2 = Object.assign({}, obj1);
+    Object.defineProperty(obj1, 'x', {
+        set(newVal) {
+
+            // 不要直接去修改 obj1.x，这样会导致死循环（无限递归）
+            obj2.x = newVal;
+
+            render();
+        },
+        get() {
+            return obj2.x;
+        }
+    });
+
+    function set(key, value) {
+        Object.defineProperty(obj1, key, {
+            set(newVal) {
+                value = newVal;
+                render();
+            },
+            get() {
+                return value;
+            }
+        })
+    }
+
+    // obj1.x = 2;
+
+    // console.log(obj1.x);
+    // obj1.x = 2;
+    // console.log(obj1.x);
+
+    /**
+     * 如果我们想拦截对象属性的变化，那么这个时候，我们需要遍历对象下每一个属性，但是 vue 在初始化可以对 data 中的数据进行遍历，然后 defineProperty，data中初始化的数据是可以有更新效果的，但是对于新增的属性就没有了
+     */
+    // obj1.y = 10;
+
+    // obj1.z = 100;
+
+    set('z', 10);
+</script>
+
+</body>
+</html>

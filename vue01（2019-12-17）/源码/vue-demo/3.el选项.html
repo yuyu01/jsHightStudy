@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+<!--一切就从这里开始……-->
+    <h1>开课吧</h1>
+    <hr>
+    <tab></tab>
+    <hr>
+    <tab></tab>
+</div>
+
+<script src="js/vue.js"></script>
+<script>
+
+
+    Vue.component('tab', {
+        template: `
+            <div>选项卡</div>
+        `
+    });
+
+    // template 选项是可选的
+    // let app = new Vue({
+    //     el: '#app',
+    //     template: `
+    //         <div>
+    //             <h1>开课吧</h1>
+    //             <hr />
+    //             <tab />
+    //             <hr />
+    //             <tab />
+    //         </div>
+    //     `
+    // });
+    // app.$mount( '#app' );
+
+
+
+    // 如果提供了 el，且又没有提供template，那么会自动把el的innerHTML作为template
+    let app = new Vue({
+        el: '#app'
+    });
+
+
+
+</script>
+
+</body>
+</html>

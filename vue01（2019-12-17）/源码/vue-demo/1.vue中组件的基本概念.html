@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+<!--一切就从这里开始……-->
+</div>
+
+<script src="js/vue.js"></script>
+<script>
+
+    /**
+     * Vue 是组件构建而成的
+     *
+     * 我们的一个应用 就是 从 Vue 的组件开始的
+     *
+     * 通过 new Vue(options) 来创建一个跟组件
+     *  options：构建组件需要用到的一些配置参数
+     *
+     * Vue 构建UI => 模板引擎
+     *
+     *
+     * 通过 new Vue(options) 的方式，可以构建一个根组件（应用的顶层组件，类似html标签），后面我们根据实际的应用需求创建各种具有不同功能的可复用的功能组件（非根组件），然后把这些可复用的功能进行组合，放入到根组件中，组成一个完整的应用
+     */
+
+    /**
+     * createElement()
+     */
+    let app = new Vue({
+        template: `
+            <div>开课吧</div>
+        `
+    });
+
+
+    /**
+     * appendChild之类的操作
+     */
+    app.$mount( '#app' );
+
+
+
+</script>
+
+</body>
+</html>

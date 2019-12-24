@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="app">
+        <h1>{{title}}</h1>
+        <hr>
+
+        <div v-test></div>
+    </div>
+
+    <script src="./js/vue.js"></script>
+
+    <script>
+
+        /**
+         * 全局指令
+         *  在整个应用中都可以使用的
+         *  名称：
+         *      在注册的时候，是不需要使用 v- 前缀的
+         *      在使用的时候，需要加上 v- 前缀
+         *  指令配置：
+         *      生命周期，钩子函数，vue 提供了一系列的钩子函数，不同的函数会在指令不同的阶段执行，从而影响使用该指令的元素
+         */
+        Vue.directive('test', {
+            bind(el, binding) {
+                // el: 该指令所在当前元素
+                // binding: 指令的配置细节，参数、修饰符、值等信息
+                console.log('bind', el, binding);
+            },
+            inserted() {
+                console.log('inserted');
+            },
+            update() {
+                console.log('update');
+            },
+            componentUpdated() {
+                console.log('componentUpdated');
+            },
+            unbind() {
+                console.log('unbind');
+            }
+        });
+
+        new Vue({
+            el: '#app',
+            data: {
+                title: '指令'
+            }
+        });
+
+    </script>
+
+</body>
+</html>
